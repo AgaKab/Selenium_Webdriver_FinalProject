@@ -47,7 +47,7 @@ class ShopTest(unittest.TestCase):
         print(priceid_dic)
 
         for key in priceid_dic:
-            if key < 3000:
+            if key > 1 000:
                 print(key)
                 result = f'//a[@data-product_id="{priceid_dic[key]}"'
                 print(result)
