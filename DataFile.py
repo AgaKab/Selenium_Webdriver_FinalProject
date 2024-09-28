@@ -47,13 +47,16 @@ class ShopTest(unittest.TestCase):
         print(priceid_dic)
 
         for key in priceid_dic:
-            if key > 1 000:
+            if key < 1000:
                 print(key)
                 result = f'//a[@data-product_id="{priceid_dic[key]}"'
                 print(result)
                 choose = self.driver.find_element(By.XPATH, f'//a[@data-product_id="{priceid_dic[key]}"]')
                 self.driver.execute_script("arguments[0].scrollIntoView();", choose)
                 choose.click()
+            else:
+                print("Nie ma takiego praduktu")
+
 
 
 
