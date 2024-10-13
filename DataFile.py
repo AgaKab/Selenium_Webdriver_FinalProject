@@ -32,11 +32,11 @@ class ShopTest(unittest.TestCase):
 
         # self.driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
 
-        # sleep(5)
+
 
         list_price = []
         list_id = []
-        priceid_dic = {}
+
         ceny = self.driver.find_elements(By.XPATH, '//bdi')
         id = self.driver.find_elements(By.XPATH, '//a[@class="button product_type_simple add_to_cart_button ajax_add_to_cart"]')
         for d in id:
@@ -62,43 +62,13 @@ class ShopTest(unittest.TestCase):
                 choose = self.driver.find_element(By.XPATH, f'//a[@data-product_id="{priceid_dic[key]}"]')
                 self.driver.execute_script("arguments[0].scrollIntoView();", choose)
                 choose.click()
-            # else:
-            #     # print("Nie ma takiego praduktu")
-            #
-            #     element_to_hover_over = self.driver.find_element(By.ID, "site-header-cart")
-            #
-            #     hover = ActionChains(self.driver).move_to_element(element_to_hover_over)
-            #     hover.perform()
-            #
-            #     empty_basket = self.driver.find_element(By.XPATH, '//p[@class="woocommerce-mini-cart__empty-message"]').text
-            #     self.assertEqual("Brak produktów w koszyku.", empty_basket)
-            #     print(empty_basket)
-
-                sleep(2)
-
-
-
-
-
-        # for p in list_price:
-        #     if p > 5000:
-        #         # choose = self.driver.find_element(By.XPATH, '//a[@class="button product_type_simple add_to_cart_button ajax_add_to_cart"]')
-        #         choose = self.driver.find_element(By.XPATH, '//a[@data-product_id="391"]')
-        #         self.driver.execute_script("arguments[0].scrollIntoView();", choose)
-        #         choose.click()
-        sleep(5)
-
-        # choose = self.driver.find_element(By.XPATH, '//a[@data-product_id="393"]')
-        # self.driver.execute_script("arguments[0].scrollIntoView();", choose)
-        # choose.click()
-        # # sleep(5)
+                # sleep(2)
 
         try:
             basket = self.driver.find_element(By.XPATH, '//a[contains(@title, "Zobacz koszyk")]')
             basket.click()
             # self.driver.execute_script("scroll(0, 0);")
             # sleep(5)
-
 
 
             coupon_input = self.driver.find_element(By.XPATH, '//input[@id="coupon_code"]')
@@ -116,7 +86,7 @@ class ShopTest(unittest.TestCase):
             pomnozone = new_amount * 350
             print(pomnozone)
 
-            wartosc_kuponu = '350,00 zł'
+
             kupon = self.driver.find_element(By.XPATH, '//td[@data-title="Kupon: windsurfing350"]/span[@class="woocommerce-Price-amount amount"]').text[:-3].replace(",", ".").replace(" ", "")
             kupon_int = float(kupon)
             print(kupon_int)
@@ -128,8 +98,8 @@ class ShopTest(unittest.TestCase):
             print(message_notice)
 
         except NoSuchElementException:
-            element_to_hover_over = self.driver.find_element(By.ID, "site-header-cart")
 
+            element_to_hover_over = self.driver.find_element(By.ID, "site-header-cart")
             hover = ActionChains(self.driver).move_to_element(element_to_hover_over)
             hover.perform()
 
@@ -137,7 +107,7 @@ class ShopTest(unittest.TestCase):
             self.assertEqual("Brak produktów w koszyku.", empty_basket)
             print(empty_basket)
 
-        pass
+        # pass
 
     def tearDown(self):
         self.driver.quit()
