@@ -1,8 +1,4 @@
-# from datetime import datetime
 # from traceback import TracebackException
-# from uu import Error
-#
-# import faker.config
 # from dateutil.utils import today
 from selenium import webdriver
 from selenium.common import NoSuchElementException
